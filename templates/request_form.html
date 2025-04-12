@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Service Request Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            margin-top: 80px;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container mx-auto">
+            <h2 class="title">Request {{ service.capitalize() }} Service</h2>
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" class="form-control" name="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Your Address</label>
+                    <input type="text" class="form-control" name="address" required>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" name="phone" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message (optional)</label>
+                    <textarea class="form-control" name="message" rows="3"></textarea>
+                </div>
+                <input type="hidden" name="service" value="{{ service }}">
+                <button type="submit" class="btn btn-success w-100">Submit Request</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
